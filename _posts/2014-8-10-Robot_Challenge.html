@@ -19,7 +19,6 @@ struct target {
 // ordered list of vertices
 vector&lt;target&gt; targets;
 </code></pre>
-<p>Now we need some </p>
 <p>Now we can begin to think about how to solve the problem. The list of vertices are ordered by their index; from targets[3] we cannot travel to targets[2]. By virtue of storing our nodes in order, we already have our list of edges. From the 3 we can go to 4, 5, 6, 7 ... but not 0, 1 or 2. In set comprehension form:</p>
 <pre><code>
 { x | x ∈ R ^ x > v ^ x < n } where
