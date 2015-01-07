@@ -21,13 +21,13 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/idea.min.css">
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
   </head>
-  <body>
-    <div id="main" role="main" class="container" style="text-align:center">
-      <h1>{{ page.title }}</h1>
-      <p class="game-description">{{page.descr}}</p>
+  <body style="text-align:center">
+    <h1>{{ page.title }}</h1>
+    <p class="game-description">{{page.descr}}</p>
+    <div id="main" role="main" class="container" >
       {{ content }}
-
     </div>
+    <p><a href="{{site.baseurl}}/gallery">Back to Games</a></p>
 
     {% include analytics.html %}
   </body>
