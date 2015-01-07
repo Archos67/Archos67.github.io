@@ -1,0 +1,72 @@
+---
+layout: post
+title: Robot Challenge
+---
+
+<p><a href="https://icpcarchive.ecs.baylor.edu/external/46/4607.pdf">Robot Challenge</a> is an old ICPC problem I solved a few weeks ago. It is a shortest path problem that involves a Robot hitting (or not) a variable number of targets then reaching an end state. The targets are ordered, so for example if you traveled to target 3, you cannot travel back and hit target 1, and in addition, you will suffer the penalty for all of the previous targets you did not travel to.</p>
+<p>As this is a shortest path problem, lets start by defining a representation of the graph.</p>
+<pre>
+<code class="cpp">// weight of an edge
+typedef long double weight;
+
+// vertex
+struct target {
+  int x;
+  int y;
+  int p; //penalty
+};
+
+// ordered list of vertices
+vector&lt;target&gt; targets;
+</code></pre>
+<p>Now we need some </p>
+<p>Now we can begin to think about how to solve the problem. The list of vertices are ordered by their index; from targets[3] we cannot travel to targets[2]. By virtue of storing our nodes in order, we already have our list of edges. From the 3 we can go to 4, 5, 6, 7 ... but not 0, 1 or 2. In set comprehension form:</p>
+<pre><code>
+{ x | x ∈ R ^ x > v ^ x < n } where
+// R is the set of all integers
+// n is the number of nodes
+// v(i) is the index of some vertex v
+// x is the index of a vertex connected to v
+</code></pre>
+<p>Now that we have our edges and vertices, we can start to think about the actual solution. Lets start with a recursive solution. Remember our goal is to reach the end end from a node. The pseudo-code:</p>
+<pre>
+<code>weight function minimumDistanceToEnd(target t)
+  weight minimumDistance := ∞
+  foreach target in targets
+     if ( minimumDistance > (costOf( t to target ) + minimumDistanceToEnd(target t)) )
+      minimumDistance := costOf( t to target ) + minimumDistanceToEnd(target t)
+  return minimumDistance
+</code>
+</pre>
+<p>With that all we would have to do is start minimumDistanceToEnd with the initial vertex. Now we don't want to be inefficient with our solution, so we shouldn't recalculate minDistanceToEnd, so lets store them in an array for each vertex: </p>
+<pre>
+<code class="cpp">//1002 2 for the start and the end, 1000 for 1000 possible targets
+weight minDistToEnd [1002];
+</code>
+</pre>
+<p>With that we have the recursive solution, but now we must build from thet bottom up for a <b>Dynamic</b> solution. To build a dynamic solution, we need to start from the bottom and go up.
+  We must remember what we did in order to avoid redundant computations; that is dynamic programming.</p>
+<pre>
+<code class="cpp">
+  /**
+   * Build the minDistToEnd array for a course with n targets
+   * by starting at the end and working backwards
+   */
+  void build(int n) {
+    weight cost = 0;
+    int j;
+    for(int i = n+1; i > -1; --i) {
+      for(j = i+1; j < n+2; ++j) {
+        if(j == i+1) {
+          cost = costFrom(i, j) + minDistToEnd[j];
+        } else if(cost > (calculateTimeCost(i, j) + minDistToEnd[j])) {
+          cost = costFrom(i, j) + minDistToEnd[j] ;
+        }
+      }
+      minDistToEnd[i] = cost;
+    }
+  }
+</code>
+</pre>
+<p>For those of you starting with dynamic programming, I hope this post was useful to you.
+All you have to do to improve is to keep practicing. Good luck!</p>
