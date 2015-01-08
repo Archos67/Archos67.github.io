@@ -309,9 +309,8 @@ footer {
 .default-canvas {
   background-color:black;
   margin-top: 25px;
-  width: 600px;
-  height:450px;
 }
+
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "_highlights";
