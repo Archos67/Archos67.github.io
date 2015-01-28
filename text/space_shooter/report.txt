@@ -21,6 +21,8 @@ Screenshots:
 
 Credits:
     I got a lot of assets (especially sounds) from opengameart.org.
+    
+    Music by RevampedPRO (http://opengameart.org/content/8-bit-music-pack-loopable)
     www.kenney.nl for laser sfx
     AstroMenace Artwork ver 1.2 Assets Copyright (c) 2006-2007 Michael Kurinnoy, Viewizard did the explosion sfx
     Master484 is the original author of the bullets sprite sheet (http://m484games.ucoz.com/)
