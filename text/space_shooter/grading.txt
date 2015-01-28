@@ -1,0 +1,35 @@
+Name: Space Shooter
+Author: Christopher Ghyzel
+
+Definition of Objects:
+
+    Ship, hero (interacts with user), bullets (player and enemy), explosions, formations create enemies
+
+Interaction Between Game Objects:
+
+    - Bullet blows up hero and enemy ships
+    - hero and enemy ships shoot bullets
+    - homing bullets track player
+    - Aimed Bullets shoot straight at player
+    - A variant of bullet will die to spawn more bullets
+    - Bullets, hero, and enemies explode upon collision
+
+
+Keeping Score:
+
+    Players get points when they finish a formation or defeat an enemy. The points values were assigned by me base on how hard I thought each enemy/formation was.
+
+Complexity:
+
+    - Bullets and ships explode
+    - Enemies have health bars
+    - Bullets track enemies
+    - Players have lives and lose the game
+    - Formations and bullet patterns are hand made to be pretty and fun.
+
+Documentation / Files:
+    I guess that is this.
+
+Demo location:
+    ghyzel.com/games/space_shooter
+    index.html (locally)

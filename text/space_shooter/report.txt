@@ -1,0 +1,27 @@
+Name: Space Shooter
+Author: Christopher Ghyzel
+How to play:
+    The player moves using W for up, A for left, S for down, and D for left, and then holds J to shoot. In addition the player can hold the shift key to move at half speeds for more precise movement. Points are earned for defeating enemies and surviving "formations". There are five formations in the game that repeat endlessly. You can play to your hearts content (or your death).
+
+Description:
+
+    If the title Space Shooter wasn't enough to clue you in on what this game is, Space Shooter is a simple "schump" set in space. The player takes control of a small ship, and fights off hordes of enemies for the purpose of achieving a higher score ( unfortunately only a local, temporary score ;; ). There is no backstory, you are just thrust in the game in order to fight off these ships with little more explanation than "WASD to move." The game throws a series "randomly" selected hand crafted enemy formations (there are only 5) that continue until the players death.
+
+    The game is designed using the module design pattern in JavaScript (http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html). Each file creates or modifies one or two sub modules, for example, the enemy.js file creates the ships and enemies sub modules. These sub modules are created using similar patterns. While there are no interfaces (that I know of) in pure JavaScript, most game object conform to the update and draw *interfaces* (I use that term loosely). All that means is that they have an update and draw method. Special objects (like enemies and the hero) also have a detectCollision function. The game loop goes something like: update => detect collisions => draw, with each set of objects that need to be updated or drawn having those methods of theirs called.
+
+    The most frequent action of interest of the game is when the bullet hits the player or enemy. Lets start with the player. If the player gets hit by a bullet he dies and loses a life, and if he loses all his lives he loses the game. To achieve this smoothly, the player goes into a dying state and an explosion is spawned, where no action is taken for about 2 real time seconds, and then our subsequent action is taken (whether that be respawning or ending the game). Similar is done for the enemy, the two main difference being that enemies have health and an enemies death will not end the game.
+
+
+Screenshots:
+    Menu:   ghyzel.com/images/space_shooter/screenshots/menu.png
+    Combat: ghyzel.com/images/space_shooter/screenshots/combat1.png
+            ghyzel.com/images/space_shooter/screenshots/combat2.png
+            ghyzel.com/images/space_shooter/screenshots/homing.png
+            ghyzel.com/images/space_shooter/screenshots/split_bullets.png
+
+Credits:
+    I got a lot of assets (especially sounds) from opengameart.org.
+    www.kenney.nl for laser sfx
+    AstroMenace Artwork ver 1.2 Assets Copyright (c) 2006-2007 Michael Kurinnoy, Viewizard did the explosion sfx
+    Master484 is the original author of the bullets sprite sheet (http://m484games.ucoz.com/)
+    Explosion arts from chabull (http://opengameart.org/content/explosions-0)
