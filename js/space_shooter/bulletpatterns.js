@@ -96,7 +96,6 @@ var SPACESHOOTER = (function(game) {
             source.y + source.image.height - 20, speed, bullet, function(modifier) {
                 this.time -= modifier;
 
-                console.log(this.time)
                 if(this.time < 0) {
                     for(var key in bullets) {
                         bullets[key](this.x, this.y);
