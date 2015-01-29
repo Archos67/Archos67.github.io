@@ -47,9 +47,9 @@ var SPACESHOOTER = (function(game) {
             game.playerBullets[hero.numberOfBullets] = bullet;
             hero.numberOfBullets++;
 
-            var sound = game.sfx.heroLaser();
+            /*var sound = game.sfx.heroLaser();
             sound.volume = .1;
-            sound.play();
+            sound.play();*/
         }
     }
     hero.draw = function() {

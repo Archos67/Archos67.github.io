@@ -14,9 +14,9 @@ var SPACESHOOTER = (function(game) {
     };
     game.numberOfEnemyBullets = 0;
     game.addEnemyBullet = function(bullet) {
-        var sound = game.sfx.enemyLaser();
+       /* var sound = game.sfx.enemyLaser();
         sound.volume = .05;
-        sound.play();
+        sound.play();*/
         game.enemyBullets[game.numberOfEnemyBullets] = bullet;
         game.numberOfEnemyBullets++;
     };
